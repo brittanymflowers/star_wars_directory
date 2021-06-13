@@ -5,9 +5,51 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: gray;
+  color: white;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.jumbotron {
+    margin: 0px;
+    padding: 15px;
+    background-image: linear-gradient(to right, #000, #4484C4,  whitesmoke);
+    color: white;
+}
+
+.navbar {
+  background: black;
+}
+
+.navbarbrand {
+  margin: 50px;
+}
+
+.people {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 30px 50px;
+}
+
+.card {
+  background: orange;
+  margin: 10px;
+  border-radius: 50px;
+  min-width: 250px;
+	padding: 15px;
+	display: flex;
+	flex-direction: column;
+  text-align: center;
+  font-size: 20px;
+  cursor: pointer;
+  color: green;
+}
+
+.card:hover {
+  	background: green;
+    color: #223343;
 }

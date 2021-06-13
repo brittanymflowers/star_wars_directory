@@ -1,9 +1,13 @@
 import People from '../People';
+import Header from '../Header';
 
 function App() {
   return (
-    <People />
-  );
+    <div>
+      <Header />
+      <People />
+    </div>
+  )
 }
 
 export default App;

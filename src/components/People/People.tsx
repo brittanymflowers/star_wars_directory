@@ -13,7 +13,7 @@ function People() {
   }, [])
 
   return (
-    <div>
+    <div className="people">
       {people.map(person => <Person person={person} />)}
     </div>
   )
