@@ -1,12 +1,9 @@
-import React from 'react'
-import { Jumbotron, Navbar, NavbarBrand } from 'reactstrap'
+import { Navbar, NavbarBrand } from 'reactstrap'
 
 function Header() {
+
   return (
     <div>
-      <Jumbotron>
-        <h1>Star Wars Directory</h1>
-      </Jumbotron>
       <Navbar className="navbar navbar-dark">
         <div className="container">
             <NavbarBrand className="ml-4" href="/">
