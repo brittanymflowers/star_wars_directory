@@ -7,8 +7,8 @@ function Films({ selected }) {
     function getTitles() {
         selected.films.forEach(movie => {
             axios(movie.toString()).then(({ data }) => {
-                let stuff = data.title
-                setFilms(current => current + stuff + ' | ')
+                let film = data.title
+                setFilms(current => current + film + " | ")
             })
         })
     }

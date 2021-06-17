@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
-function Homeworld({ selected }) {
-    const [homeworld, setHomeworld] = useState('')
+function Planet({ selected }) {
+    const [planet, setPlanet] = useState('')
 
     const thisSpecies = () => {
         axios(selected.homeworld).then(({ data }) => {
             let stuff = data.name;
-            setHomeworld(stuff)
+            setPlanet(stuff)
         })
     };
     useEffect(() => {
@@ -16,9 +16,9 @@ function Homeworld({ selected }) {
 
 return (
         <span>
-            {homeworld}
+            {planet}
         </span>
     )
 }
 
-export default Homeworld
+export default Planet

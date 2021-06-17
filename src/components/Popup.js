@@ -1,6 +1,6 @@
 import Species from './Species'
 import Films from './Films'
-import Homeworld from './Homeworld'
+import Planet from './Planet'
 import * as R from 'ramda';
 
 function Popup({ selected, closePopup }) {
@@ -9,14 +9,14 @@ function Popup({ selected, closePopup }) {
         <section className="popup">
             <div className="content">
                 <h2>{selected.name}</h2>
-                <p>Films: <Films selected={selected}/></p>
-                <p>Species: <Species selected={selected} /></p>
-                <p>Homeworld: <Homeworld selected={selected} /></p>
+                <p>Number of Film Appearances: {selected.films.length}</p>
+                <p>Film Titles: <Films selected={selected}/></p>
+                <p>Species: <Species selected={selected}/></p>
+                <p>Home Planet: <Planet selected={selected}/></p>
                 <p>Height: {selected.height} cm</p>
                 <p>Hair Color: {selected.hair_color}</p>
                 <p>Eye Color: {selected.eye_color}</p>
                 <p>Gender: {selected.gender}</p>
-
                 <button className="close" onClick={closePopup}>Close</button>
             </div>
         </section>
