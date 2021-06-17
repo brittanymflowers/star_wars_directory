@@ -138,7 +138,7 @@ code {
 }
 
 .pageButton:hover {
-  background: black;
+  background: rgb(34, 34, 34);
   box-shadow: 0px 0px 4px 4px #f9d71c;
 }
 
