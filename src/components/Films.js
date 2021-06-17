@@ -1,11 +1,25 @@
-import React from 'react'
-import axios from 'axios';
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 
-function Films() {
+function Films({ selected }) {
+    const [films, setFilms] = useState([])
+
+    function getTitles() {
+        selected.films.forEach(movie => {
+            axios(movie.toString()).then(({ data }) => {
+                let stuff = data.title
+                setFilms(current => current + stuff + ' | ')
+            })
+        })
+    }
+    useEffect(() => {
+        getTitles();
+    }, [])
+
     return (
-        <div>
-            
-        </div>
+        <span>
+            {films}
+        </span>
     )
 }
 

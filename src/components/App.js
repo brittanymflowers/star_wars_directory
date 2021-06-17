@@ -4,72 +4,58 @@ import Search from './Search';
 import Results from './Results';
 import Popup from './Popup';
 import axios from 'axios';
-import * as R from 'ramda';
 
 function App() {
-  const [state, setState] = useState({
-    searched: '',
-    results: [],
-    selected: {},
-  })
+  const [searched, setSearched] = useState('')
+  const [results, setResults] = useState([])
+  const [selected, setSelected] = useState({})
 
   const search = (e) => {
     if (e.key === "Enter") {
-      axios('https://swapi.dev/api/people/?search=' + state.searched).then(({ data }) => {
+      axios('https://swapi.dev/api/people/?search=' + searched).then(({ data }) => {
         let results = data.results;
-
-        console.log(results);
-
-        setState(prevState => {
-          return { ...prevState, results: results }
-        })
+        setResults(results)
       });
     }
   }
 
-  const results = async () => {
+  const listResults = async () => {
     axios("https://swapi.dev/api/people/").then(({ data }) => {
       const results = data.results;
-      setState(prevState => {
-        return { ...prevState, results: results }
-      });
+      setResults(results)
     })
   };
   useEffect(() => {
-      results();
-    }, []);
-
+      listResults();
+  }, []);
+  
   const handleInput = (e) => {
     let searched = e.target.value;
-    setState(prevState => {
-      return { ...prevState, searched: searched }
-    });
+    setSearched(searched)
   }
 
   const openPopup = url => {
     axios(url).then(({ data }) => {
       let singleResult = data;
-      console.log(singleResult);
-      setState(prevState => {
-        return { ...prevState, selected: singleResult }
-      });
+      setSelected(singleResult)
     });
   }
 
   const closePopup = () => {
-    setState(prevState => {
-      return { ...prevState, selected: {} }
-    });
+    setSelected({})
   }
+
+  console.log(selected)
+  console.log(selected.films)
+  console.log(selected.species)
 
 
   return (
     <div>
       <Header />
       <Search handleInput={handleInput} search={search} />
-      {/* {R.isEmpty(state.searched) ? null : <Results results={state.results} openPopup={openPopup}/>} */}
-      <Results results={state.results} openPopup={openPopup}/>
-      <Popup selected={state.selected} closePopup={closePopup}/>
+      <Results results={results} openPopup={openPopup}/>
+      <Popup selected={selected} closePopup={closePopup}/>
     </div>
   );
 }
