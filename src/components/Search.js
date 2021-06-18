@@ -27,15 +27,15 @@ function Search({ setSearched, setResults, setNumResults, setNext, setPrev, sear
     }
 
     return (
-        <section className='searchbox-wrap'>
+        <div>
             <input
                 type='text'
-                placeholder='Search Character by Name...'
+                placeholder='Search by Name...'
                 className='searchbox'
                 onChange={handleInput}
                 onKeyPress={search}
             />
-        </section>
+        </div>
     )
 }
 

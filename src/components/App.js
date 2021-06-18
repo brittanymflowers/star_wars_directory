@@ -48,7 +48,7 @@ function App() {
       <Results results={results} setSelected={setSelected} selected={selected} />
       <div className='row'>
         <PrevButton prev={prev} setResults={setResults} setNext={setNext} setPrev={setPrev} setPage={setPage} listResults={listResults} />
-        <NextButton next={next} setResults={setResults} setNext={setNext} setPrev={setPrev} setPage={setPage} listResults={listResults}/>
+        <NextButton next={next} setResults={setResults} setNext={setNext} setPrev={setPrev} setPage={setPage} listResults={listResults} />
       </div>
       <PageCounter numResults={numResults} page={page} />
       <div className='row'>
