@@ -80,7 +80,7 @@ code {
 }
 
 .popup {
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
   right: 0;
@@ -91,7 +91,7 @@ code {
   background-image: url('./images/deathstar.jpeg');
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: cover;
+  background-size: fill;
   size: cover;
 }
 
