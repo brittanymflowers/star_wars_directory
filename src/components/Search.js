@@ -24,7 +24,7 @@ function Search({ setSearched, setResults, setNumResults, setNext, setPrev, sear
         setNumResults(0)
         setNext('')
         setPrev('')
-        setPage(0)
+        setPage(1)
     }
 
     return (
