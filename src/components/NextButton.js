@@ -1,16 +1,34 @@
-import React from 'react'
+/* eslint-disable react-hooks/exhaustive-deps */
+import {useEffect} from 'react'
+import axios from 'axios'
 
-function NextButton({ goToNext, next }) {
+function NextButton({ next, setResults, setNext, setPrev, setPage, listResults }) {
+
+    const goToNext = () => {
+        axios(next).then(({ data }) => {
+            let results = data.results;
+            let next = data.next;
+            let prev = data.previous;
+            setResults(results)
+            setNext(next)
+            setPrev(prev)
+            setPage(current => ++current)
+        })
+    };
+    useEffect(() => {
+        listResults();
+    }, []);
+
     if (!next) {
         return (
-            <section>
-                <button className="shadyButton">Next Page</button>
-            </section>
+            // <div className="col-md-4">
+            <button className='shadyButton col'>Next Page</button>
+            // </div>
         )
     } else return (
-        <section>
-            <button className="pageButton" onClick={goToNext}>Next Page</button>
-        </section>
+        // <div className="col-md-4">
+        <button className='pageButton col' onClick={goToNext}>Next Page</button>
+        // </div>
     )
 }
 

@@ -17,23 +17,8 @@ function App() {
   const [next, setNext] = useState('')
   const [prev, setPrev] = useState('')
 
-  const search = (e) => {
-    if (e.key === "Enter") {
-      axios('https://swapi.dev/api/people/?search=' + searched).then(({ data }) => {
-        let results = data.results;
-        let numResults = data.count;
-        let next = data.next;
-        let prev = data.previous;
-        setResults(results)
-        setNumResults(numResults)
-        setNext(next)
-        setPrev(prev)
-      });
-    }
-  }
-
   const listResults = async () => {
-    axios("https://swapi.dev/api/people/").then(({ data }) => {
+    axios('https://swapi.dev/api/people/').then(({ data }) => {
       let results = data.results;
       let numResults = data.count;
       let next = data.next;
@@ -47,75 +32,26 @@ function App() {
   useEffect(() => {
       listResults();
   }, []);
-
-  const goToNext = () => {
-    axios(next).then(({ data }) => {
-      let results = data.results;
-      let next = data.next;
-      let prev = data.previous;
-      setResults(results)
-      setNext(next)
-      setPrev(prev)
-      setPage(current => ++current)
-    })
-  };
-  useEffect(() => {
-    listResults();
-  }, []);
-
-  const goToPrev = () => {
-    axios(prev).then(({ data }) => {
-      let results = data.results;
-      let next = data.next
-      let prev = data.previous;
-      setResults(results)
-      setNext(next)
-      setPrev(prev)
-      setPage(current => --current)
-    })
-  };
-  useEffect(() => {
-    listResults();
-  }, []);
   
-  const handleInput = (e) => {
-    let searched = e.target.value;
-    setSearched(searched)
-    setNumResults(0)
-    setNext('')
-    setPrev('')
-  }
-
-  const openPopup = url => {
-    axios(url).then(({ data }) => {
-      let selected = data;
-      setSelected(selected)
-    });
-  }
-
-  const closePopup = () => {
-    setSelected({})
-  }
-
-  console.log(searched)
-  console.log(results)
-  console.log(numResults)
-  console.log(selected)
-  console.log(page)
-  console.log(next)
-  console.log(prev)
+  // console.log(searched)
+  // console.log(results)
+  // console.log(numResults)
+  // console.log(selected)
+  // console.log(page)
+  // console.log(next)
+  // console.log(prev)
 
   return (
-    <div>
+    <div className='container'>
       <Header />
-      <Search handleInput={handleInput} search={search} />
-      <Results results={results} openPopup={openPopup} />
-      <div>
-        <PrevButton goToPrev={goToPrev} prev={prev} />
-        <NextButton goToNext={goToNext} next={next} />
+      <Search setSearched={setSearched} setResults={setResults} setNumResults={setNumResults} setNext={setNext} setPrev={setPrev} searched={searched} />
+      <Results results={results} setSelected={setSelected} selected={selected} />
+      <div className='row'>
+        <PrevButton prev={prev} setResults={setResults} setNext={setNext} setPrev={setPrev} setPage={setPage} listResults={listResults} />
+        <NextButton next={next} setResults={setResults} setNext={setNext} setPrev={setPrev} setPage={setPage} listResults={listResults}/>
       </div>
-      <PageCounter numResults={numResults} page={page}/>
-      <Popup selected={selected} closePopup={closePopup}/>
+      <PageCounter numResults={numResults} page={page} />
+      <Popup selected={selected} setSelected={setSelected}/>
     </div>
   );
 }

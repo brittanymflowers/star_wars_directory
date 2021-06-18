@@ -3,11 +3,16 @@ import Films from './Films'
 import Planet from './Planet'
 import * as R from 'ramda';
 
-function Popup({ selected, closePopup }) {
+function Popup({ selected, setSelected }) {
+
+    const closePopup = () => {
+        setSelected({})
+    }
+
     if (R.isNil(selected) || R.isEmpty(selected)) return null;
     return (
-        <section className="popup">
-            <div className="content">
+        <section className='popup'>
+            <div className='content'>
                 <h2>{selected.name}</h2>
                 <p>Number of Film Appearances: {selected.films.length}</p>
                 <p>Film Titles: <Films selected={selected}/></p>
@@ -17,7 +22,7 @@ function Popup({ selected, closePopup }) {
                 <p>Hair Color: {selected.hair_color}</p>
                 <p>Eye Color: {selected.eye_color}</p>
                 <p>Gender: {selected.gender}</p>
-                <button className="close" onClick={closePopup}>Close</button>
+                <button className='close' onClick={closePopup}>Close</button>
             </div>
         </section>
     )

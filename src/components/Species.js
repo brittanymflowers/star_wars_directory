@@ -17,7 +17,7 @@ function Species({ selected }) {
 
     if (!species) {
         return (
-            "Human"
+            'Human'
         )
     } else return (
         <span>
