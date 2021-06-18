@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-function Search({ setSearched, setResults, setNumResults, setNext, setPrev, searched }) {
+function Search({ setSearched, setResults, setNumResults, setNext, setPrev, searched, setPage }) {
     
     const search = (e) => {
         if (e.key === 'Enter') {
@@ -24,6 +24,7 @@ function Search({ setSearched, setResults, setNumResults, setNext, setPrev, sear
         setNumResults(0)
         setNext('')
         setPrev('')
+        setPage(0)
     }
 
     return (

@@ -44,7 +44,7 @@ function App() {
   return (
     <div className='container'>
       <Header />
-      <Search setSearched={setSearched} setResults={setResults} setNumResults={setNumResults} setNext={setNext} setPrev={setPrev} searched={searched} />
+      <Search setSearched={setSearched} setResults={setResults} setNumResults={setNumResults} setNext={setNext} setPrev={setPrev} searched={searched} setPage={setPage}/>
       <Results results={results} setSelected={setSelected} selected={selected} />
       <div className='row'>
         <PrevButton prev={prev} setResults={setResults} setNext={setNext} setPrev={setPrev} setPage={setPage} listResults={listResults} />
