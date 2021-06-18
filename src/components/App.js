@@ -51,6 +51,9 @@ function App() {
         <NextButton next={next} setResults={setResults} setNext={setNext} setPrev={setPrev} setPage={setPage} listResults={listResults}/>
       </div>
       <PageCounter numResults={numResults} page={page} />
+      <div className='row'>
+        <a className='row' href='/'>Return to Full List</a>
+      </div>
       <Popup selected={selected} setSelected={setSelected}/>
     </div>
   );

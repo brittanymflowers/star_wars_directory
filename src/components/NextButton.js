@@ -21,14 +21,10 @@ function NextButton({ next, setResults, setNext, setPrev, setPage, listResults }
 
     if (!next) {
         return (
-            // <div className="col-md-4">
             <button className='shadyButton col'>Next Page</button>
-            // </div>
         )
     } else return (
-        // <div className="col-md-4">
         <button className='pageButton col' onClick={goToNext}>Next Page</button>
-        // </div>
     )
 }
 
