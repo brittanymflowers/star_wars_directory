@@ -27,7 +27,7 @@ function PrevButton({ prev, setResults, setNext, setPrev, setPage, listResults }
         )
     } else return (
         // <div className="col-md-4">
-        <button className='pageButton col-md-4' onClick={goToPrev}>Prev Page</button>
+        <button id="redLight" className='pageButton col-md-4' onClick={goToPrev}>Prev Page</button>
         // </div>
     )
 }

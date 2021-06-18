@@ -24,7 +24,7 @@ function NextButton({ next, setResults, setNext, setPrev, setPage, listResults }
             <button className='shadyButton col'>Next Page</button>
         )
     } else return (
-        <button className='pageButton col' onClick={goToNext}>Next Page</button>
+        <button id="blueLight" className='pageButton col' onClick={goToNext}>Next Page</button>
     )
 }
 

@@ -13,16 +13,16 @@ function Popup({ selected, setSelected }) {
     return (
         <section className='popup'>
             <div className='content'>
-                <h2>{selected.name}</h2>
-                <p>Number of Film Appearances: {selected.films.length}</p>
-                <p>Film Titles: <Films selected={selected}/></p>
-                <p>Species: <Species selected={selected}/></p>
-                <p>Home Planet: <Planet selected={selected}/></p>
-                <p>Height: {selected.height} cm</p>
-                <p>Hair Color: {selected.hair_color}</p>
-                <p>Eye Color: {selected.eye_color}</p>
-                <p>Gender: {selected.gender}</p>
-                <button className='close' onClick={closePopup}>Close</button>
+                <h1>{selected.name}</h1>
+                <p><b>Number of Film Appearances:</b> {selected.films.length}</p>
+                <p><b>Film Titles:</b> <Films selected={selected}/></p>
+                <p><b>Species:</b> <Species selected={selected}/></p>
+                <p><b>Home Planet:</b> <Planet selected={selected}/></p>
+                <p><b>Height:</b> {selected.height} cm</p>
+                <p><b>Hair Color:</b> {selected.hair_color}</p>
+                <p><b>Eye Color:</b> {selected.eye_color}</p>
+                <p><b>Gender:</b> {selected.gender}</p>
+                <button className='pageButton' onClick={closePopup}>Close</button>
             </div>
         </section>
     )
