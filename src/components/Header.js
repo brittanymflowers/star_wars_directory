@@ -5,11 +5,11 @@ function Header() {
 // I chose to go very simple with the header component since there wasn't much need for navigation or anything.
 
   return (
-    <div id='top'>
+    <div data-testid='navbar'>
       <Navbar className='navbar'>
         <div className='container'>
-            <NavbarBrand href='/'>
-                <img src='/starwars.png' height='100' alt='Star Wars Logo' />
+            <NavbarBrand href='/' data-testid='swlogo'>
+              <img src='/starwars.png' height='100' alt='Star Wars Logo' />
             </NavbarBrand>
         </div>
       </Navbar>

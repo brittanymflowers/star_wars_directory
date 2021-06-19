@@ -30,6 +30,7 @@ function Search({ setSearched, setResults, setNumResults, setNext, setPrev, sear
     return (
         <div>
             <input
+                data-testid="searchInput"
                 type='text'
                 placeholder='Search by Name...'
                 className='searchbox'
