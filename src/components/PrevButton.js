@@ -2,9 +2,13 @@
 import { useEffect } from 'react'
 import axios from 'axios'
 
-function PrevButton({ prev, setResults, setNext, setPrev, setPage, listResults }) {
+// I created Prev and Next buttons to navigate through pages of results.
+// The prev button will turn grey and become unresponsive if there is not a prev page available.
+
+function PrevButton({ prev, setResults, setNext, setPrev, setPage, listCharacters }) {
 
     const goToPrev = () => {
+        window.scrollTo(0, 0)
         axios(prev).then(({ data }) => {
             let results = data.results;
             let next = data.next
@@ -14,21 +18,17 @@ function PrevButton({ prev, setResults, setNext, setPrev, setPage, listResults }
             setPrev(prev)
             setPage(current => --current)
         })
-    };
+    }
     useEffect(() => {
-        listResults();
-    }, []);
+        listCharacters()
+    }, [])
     
     if (!prev) {
         return (
-            // <div className="col-md-4">
-            <button className='shadyButton col-md-4'>Prev Page</button>
-            // </div>
+            <button className='shadyButton col'>Prev Page</button>
         )
     } else return (
-        // <div className="col-md-4">
-        <button id="redLight" className='pageButton col-md-4' onClick={goToPrev}>Prev Page</button>
-        // </div>
+        <button id='redLight' className='pageButton col' onClick={goToPrev}>Prev Page</button>
     )
 }
 

@@ -19,7 +19,7 @@ function Search({ setSearched, setResults, setNumResults, setNext, setPrev, sear
     }
 
     const handleInput = (e) => {
-        let searched = e.target.value;
+        let searched = e.target.value
         setSearched(searched)
         setNumResults(0)
         setNext('')

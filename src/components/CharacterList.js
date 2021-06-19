@@ -1,14 +1,16 @@
-import React from 'react';
-import Result from './Result';
+import Result from './Character'
 import axios from 'axios'
 
-function Results({ results, setSelected }) {
+// The CharacterList component maps out each individual character returned by the API for a search.
+// (or as default, all 82 characters in the people list)
+
+function CharacterList({ results, setSelected }) {
 
     const openPopup = url => {
         axios(url).then(({ data }) => {
             let selected = data;
             setSelected(selected)
-        });
+        })
     }
 
     return (
@@ -20,4 +22,4 @@ function Results({ results, setSelected }) {
     )
 }
 
-export default Results;
+export default CharacterList

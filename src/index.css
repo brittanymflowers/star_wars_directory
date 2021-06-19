@@ -72,11 +72,7 @@ code {
 }
 
 .searchbox:focus {
-	box-shadow: 0px 0px 8px 3px #f9d71c;
-}
-
-.searchbox:active {
-	box-shadow: 0px 0px 8px 3px #f9d71c;
+	box-shadow: 0px 0px 5px 5px #f9d71c;
 }
 
 .popup {
