@@ -10,7 +10,7 @@ function Header() {
         <div className='container'>
             <NavbarBrand href='/' data-testid='swlogo'>
               <img src='/starwars.png' height='100' alt='Star Wars Logo' />
-            </NavbarBrand>
+          </NavbarBrand>
         </div>
       </Navbar>
     </div>
