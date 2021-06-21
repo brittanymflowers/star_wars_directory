@@ -1,11 +1,16 @@
 import { render } from '@testing-library/react';
 import Search from './Search';
 
-describe('Send Search requests to database', () => {
-    test('onKeyPress triggers search', (e) => {
-        render(<Search />);
-        const search = jest.fn()
-        expect(e.key).toBe('Enter')
-        expect(search).toHaveBeenCalled()
-        })
-    });
+function searchName(callback, searchInput) {
+    if (searchInput !== null) {
+        callback(searchInput)
+    }
+}
+
+test('search input sends call to API', async () => {
+        render(<Search />)
+        const search = jest.fn();
+        searchName(search, 'luke');
+        expect(search).toHaveBeenCalled();
+});
+

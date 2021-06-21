@@ -1,5 +1,8 @@
 import App from './App'
+import { render, screen } from '@testing-library/react';
 
-test('fake test', () => {
-    expect(true).toBeTruthy();
+test('render header', () => {
+    render(<App />);
+    const header = screen.getByTestId('navbar');
+    expect(header).toBeDefined();
 });
